@@ -134,7 +134,24 @@ def visualizar_eventos():
             print(f"Capacidade Máxima: {evento['capacidade']}")
         print("-------------------------------")
 
+def excluir_evento():
+    print("\nExcluir evento:")
 
+    for i, evento in enumerate(eventos):
+        print(f"{i+1} - {evento['nome']}")
+    while True:
+        try:
+            ind_evento = int(input("\nDigite o número do evento que deseja excluir:"))
+            if 0 < ind_evento <= len(eventos):
+                evento = eventos[ind_evento - 1]['nome']
+                eventos.pop(ind_evento - 1)
+                print(f"Evento excluido com Sucesso!")
+                break
+            else:
+                print("\n Opção invalida tente novamente.")
+                evento = int(input("\nQual evento gostaria de excluir?"))
+        except ValueError:
+            print("\nTente novamente. Qual evento gostaria de excluir?")
 
 
 while True:
@@ -156,8 +173,8 @@ while True:
         print("Editar eventos (em construção)")
 
     elif escolha == 4:
-        print("Excluir evento(em construção)")
-
+        print("\nEscolha o evento a ser excluido:")
+        excluir_evento()
     else:
         print("Opção inválida.")
     
