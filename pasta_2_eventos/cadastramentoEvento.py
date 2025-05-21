@@ -186,7 +186,6 @@ def atualizar_eventos():
         except ValueError:
             print("Invalido, Digite um número.")
 
-
 while True:
     menu()
 
